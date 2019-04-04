@@ -1,0 +1,2 @@
+# flaravel-generator
+laravel generator
