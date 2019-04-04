@@ -1,2 +1,3 @@
 # flaravel-generator
-laravel generator
+
+### composer require

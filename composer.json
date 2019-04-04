@@ -1,0 +1,12 @@
+{
+    "name": "flaravel/generator",
+    "description": "generator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "flaravel",
+            "email": "fangxijun0101@meimeik.com"
+        }
+    ],
+    "require": {}
+}
