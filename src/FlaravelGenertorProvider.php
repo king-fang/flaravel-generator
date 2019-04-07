@@ -2,7 +2,7 @@
 
 namespace Flaravel\Generator;
 
-use App\Console\Commands\FlaravelGenerator;
+use Flaravel\Generator\Commands\FlaravelGenerator;
 use Illuminate\Support\ServiceProvider;
 
 class FlaravelGenertorProvider extends ServiceProvider
