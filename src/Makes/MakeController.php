@@ -33,6 +33,8 @@ class MakeController
         $name = $this->flaravelCommandObj->option('f').'/'.$this->flaravelCommandObj->getObjName('Names') . 'Controller';
         $path = $this->getPath($name, 'controller');
 
+        $this->createBaseControllerStub();
+
         if ($this->files->exists($path))
         {
             return $this->flaravelCommandObj->comment("x " . $path);
@@ -59,5 +61,18 @@ class MakeController
         $stub = str_replace('\{{Folder}}', $this->flaravelCommandObj->option('f') == null ? '' : '\\'.$this->flaravelCommandObj->option('f'), $stub);
 
         return $stub;
+    }
+
+    public function createBaseControllerStub()
+    {
+        $base_stub = $this->files->get(substr(__DIR__,0, -5) . 'Stubs/base_controller.stub');
+        $base_controller_path = $this->getPath('', 'base_controller');
+
+        if (!$this->files->exists($base_controller_path))
+        {
+            $this->files->put($base_controller_path, $base_stub);
+            return $this->flaravelCommandObj->info("+ $base_controller_path". ' (Updated)');
+        }
+        return $this->flaravelCommandObj->comment("x $base_controller_path" . ' (Skipped)');
     }
 }
