@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\{{Folder}};
 
-use {{namespace}}Models\{{Folder}}\{{Model}};
-use Illuminate\Http\Request;
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\{{Model}}Request;
+use Illuminate\Http\Request;
+use {{namespace}}Models\{{Folder}}\{{Model}};
 
-class {{Models}}Controller extends Controller
+class {{Models}}Controller extends ApiController
 {
 
     public function index()
@@ -19,13 +20,14 @@ class {{Models}}Controller extends Controller
     public function show($id)
     {
         ${{model}} = {{Model}}::find($id);
-        return  response()->json(['code' => 200, 'data' => ${{model}}]);
+
+        return  $this->success(['data' => ${{model}}]);
     }
 
     public function store({{Model}}Request $request)
     {
         ${{model}} = {{Model}}::create($request->all());
-        return response()->json(['code' => 200, 'message' => '添加成功']);
+        return $this->success('添加成功');
     }
 
     public function update({{Model}}Request $request, $id)
@@ -34,7 +36,7 @@ class {{Models}}Controller extends Controller
 
         ${{model}}->update($request->all());
 
-        return  response()->json(['code' => 200, 'message' => '更新成功']);
+        return $this->success('更新成功');
     }
 
     public function destroy($id)
@@ -42,6 +44,6 @@ class {{Models}}Controller extends Controller
         ${{model}} = {{Model}}::find($id);
         ${{model}}->delete();
 
-        return  response()->json(['code' => 200, 'message' => '删除成功']);
+        return $this->success('删除成功');
     }
 }
