@@ -19,7 +19,7 @@ class ApiController extends Controller
 
     protected function success($data, $code = 200)
     {
-        $data = is_array($data) ? $data : ['message' => $data];
+        $data = is_array($data) || is_object($data) ? $data : ['message' => $data];
         return response()->json(['code' => $code,'data' => $data], 200);
     }
 }

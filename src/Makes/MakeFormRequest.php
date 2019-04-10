@@ -39,15 +39,13 @@ class MakeFormRequest
     {
         $path = $this->getPath($name, 'request');
 
-        if ($this->files->exists($path))
+        if(! $this->files->exists($path))
         {
-            return $this->flaravelCommandObj->comment("x $path" . ' (Skipped)');
+            $this->makeDirectory($path);
+
+            $this->files->put($path, $this->compileStub($stubname));
+
+            $this->flaravelCommandObj->info('+ ' . $path);
         }
-
-        $this->makeDirectory($path);
-
-        $this->files->put($path, $this->compileStub($stubname));
-
-        $this->flaravelCommandObj->info('+ ' . $path);
     }
 }
