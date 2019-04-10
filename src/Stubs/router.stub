@@ -1,1 +1,2 @@
-Route::resource('{{models}}', '{{Models}}Controller');
+//{{Description}}
+Route::resource('{{models}}', '{{Folder}}\{{Models}}Controller');

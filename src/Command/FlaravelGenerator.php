@@ -20,7 +20,12 @@ class FlaravelGenerator extends Command
      *
      * @var string
      */
-    protected $signature = 'flaravel:make {name : Class (singular) for example User} {--migrate=} {--f=}';
+    protected $signature = 'flaravel:make
+                            {name : Class (singular) for example User}
+                            {--migrate= : 创建迁移文件并运行迁移}
+                            {--f= : 创建模块文件夹}
+                            {--desc= : 创建路由描述}
+                            {--auth : 创建权限路由 }';
 
     /**
      * The console command description.
@@ -96,6 +101,7 @@ class FlaravelGenerator extends Command
         $this->meta['model'] = $this->getObjName('name');
         $this->meta['models'] = $this->getObjName('names');
         $this->meta['ModelMigration'] = "Create{$this->meta['Models']}Table";
+        $this->meta['Description'] = $this->option('desc') ?? '';
         if( $this->option('migrate'))
         {
             $this->meta['migrate'] = $this->option('migrate');

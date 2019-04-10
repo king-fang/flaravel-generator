@@ -5,6 +5,7 @@ namespace Flaravel\Generator\Makes;
 use Flaravel\Generator\Commands\FlaravelGenerator;
 use Flaravel\Generator\MakerTrait;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 
 class MakeRoute
 {
@@ -48,8 +49,14 @@ class MakeRoute
     {
         $stub = $this->files->get(substr(__DIR__,0, -5) . 'Stubs/router.stub');
 
-        $this->buildStub($this->flaravelCommandObj->getMeta(), $stub);
+        $stub = $this->buildStub($this->flaravelCommandObj->getMeta(), $stub);
 
+        if($this->flaravelCommandObj->option('auth'))
+        {
+            $stub = Str::before($stub,';').'->middleware("auth:api")'.';';
+        }
+
+        $stub = str_replace('{{Folder}}\\', $this->flaravelCommandObj->option('f') == null ? '' : $this->flaravelCommandObj->option('f').'\\', $stub);
         return $stub;
     }
 }

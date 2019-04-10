@@ -71,8 +71,7 @@ class MakeController
         if (!$this->files->exists($base_controller_path))
         {
             $this->files->put($base_controller_path, $base_stub);
-            return $this->flaravelCommandObj->info("+ $base_controller_path". ' (Updated)');
+            return $this->flaravelCommandObj->info("+ $base_controller_path");
         }
-        return $this->flaravelCommandObj->comment("x $base_controller_path" . ' (Skipped)');
     }
 }
