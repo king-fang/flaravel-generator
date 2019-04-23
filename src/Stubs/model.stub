@@ -2,6 +2,8 @@
 
 namespace App\Models\{{Folder}};
 
+use Illuminate\Database\Eloquent\Model;
+
 class {{Model}} extends Model
 {
     protected $fillable = [{{fillable}}];
