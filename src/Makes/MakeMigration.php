@@ -2,10 +2,10 @@
 
 namespace Flaravel\Generator\Makes;
 
-use App\Libs\Flaravel\Generator\MigrateParser;
-use App\Libs\Flaravel\Generator\SyntaxBuilder;
 use Flaravel\Generator\Commands\FlaravelGenerator;
 use Flaravel\Generator\MakerTrait;
+use Flaravel\Generator\MigrateParser;
+use Flaravel\Generator\SyntaxBuilder;
 use Illuminate\Filesystem\Filesystem;
 
 class MakeMigration

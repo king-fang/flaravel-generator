@@ -73,7 +73,7 @@ class FlaravelGenerator extends Command
         if($this->option('migrate'))
         {
             $this->makeMigration();
-            $this->call('migrate');
+            // $this->call('migrate');
         }
         $this->line("\n----------- $footer -------------");
 

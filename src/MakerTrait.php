@@ -2,7 +2,6 @@
 
 namespace Flaravel\Generator;
 
-use App\Console\Commands\FlaravelGenerator;
 use Illuminate\Container\Container;
 use Illuminate\Filesystem\Filesystem;
 
