@@ -4,6 +4,7 @@ namespace Flaravel\Generator\Makes;
 
 use Flaravel\Generator\Commands\FlaravelGenerator;
 use Flaravel\Generator\MakerTrait;
+use Flaravel\Generator\MigrateParser;
 use Illuminate\Filesystem\Filesystem;
 
 
